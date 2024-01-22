@@ -1,0 +1,26 @@
+<div style="margin: 0 auto;">
+  <table class="table table-dark">
+<div *ngIf="apartment">
+    <h2>Apartment Details</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Apartment Number</th>
+          <th>Floor Number</th>
+          <th>Surface</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let apart of listApartments">
+            <ng-container *ngIf="apart.id == this.apartment.id">
+                <td>{{ apart.appartNum }}</td>
+            <td>{{ apart.floorNum }}</td>
+            <td>{{ apart.surface }}</td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </table>
+</div>
+  

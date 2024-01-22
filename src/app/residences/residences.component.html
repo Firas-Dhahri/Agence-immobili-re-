@@ -1,0 +1,87 @@
+<h1 class="text-center font-times-new-roman">{{ Title }}</h1>
+<head>
+  <!-- Autres balises -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="..." crossorigin="anonymous" />
+</head>
+<div class="row">
+    <input type="number" placeholder="Filter by surface" [(ngModel)]="surf" (keyup)="applySurfaceFilter()" class="form-control">
+
+    <!-- Tableau pour afficher les appartements filtrés -->
+    <div *ngIf="listapf.length > 0 && surf" class="col-md-12 mt-4">
+
+        <h2>Filtered Apartments</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>AppartNum</th>
+                    <th>FloorNum</th>
+                    <th>Surface</th>
+                    <!-- Autres colonnes -->
+                    <th>Like</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let apartment of listapf">
+                    <td>{{ apartment.appartNum }}</td>
+                    <td>{{ apartment.floorNum }}</td>
+                    <td>{{ apartment.surface }}</td>
+                    <!-- Autres colonnes -->
+                    <td>
+                        <button (click)="toggleLike(apartment)" class="btn btn-outline-black btn-blue">
+                            {{ apartment.isLiked ? 'Unlike' : 'Like' }}
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Section pour afficher les résidences et leurs détails -->
+    <div *ngFor="let residence of listres" class="col-md-5 mb-">
+        <div class="card ">
+
+            <!-- Affichage des détails de la résidence -->
+            <div class="card-body">
+                <h2 class="card-title">{{ residence.name }}</h2>
+                <p class="card-text">{{ residence.address }}</p>
+                <img [src]="residence.image" class="card-img-top" style="width: 400px; height: 200px;" alt="{{ residence.name }}">
+                <button (click)="toggleApartments(residence)" class="btn btn-info mt-3" style="display: flex;">
+
+                  {{ residence.showApartments ? 'Hide Apartments' : 'Show Apartments' }}
+
+                </button>
+            </div>
+
+            <!-- Affichage des appartements de la résidence -->
+            <div *ngIf="residence.showApartments">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>AppartNum</th>
+                            <th>FloorNum</th>
+                            <th>Surface</th>
+                            <!-- Autres colonnes -->
+                            <th>Like</th>
+                            <th>Details</th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let apartment of getApartmentsByResidence(residence)">
+                            <td>{{ apartment.appartNum }}</td>
+                            <td>{{ apartment.floorNum }}</td>
+                            <td>{{ apartment.surface }}</td>
+                            <!-- Autres colonnes -->
+                            <td>
+                              <i [ngClass]="apartment.isLiked ? 'fas fa-thumbs-up' : 'far fa-thumbs-up'"   (click)="toggleLike(apartment)"></i>
+                            </td>
+                            <td><a [routerLink]="['/details', apartment.id]">Details</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <p>Liked residence {{this.favapp |json }}</p>
+</div>

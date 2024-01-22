@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="w-50">
+    <div class="mb-3">
+      <label for="firstname" class="form-label">Login:</label>
+      <input class="form-control" type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name">
+      <div class="alert alert-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.hasError('required')"> required</div>
+    </div>
+    <div class="mb-3">
+      <label for="firstname" class="form-label">Password:</label>
+      <input class="form-control" type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name">
+    </div>
+    
+    <div class="mb-3">
+      <label for="firstname" class="form-label">First Name:</label>
+      <input class="form-control" type="text" id="firstname" formControlName="firstname" placeholder="Enter your first name">
+      <div class="alert alert-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.hasError('required')">The First Name is required</div>
+      <div class="alert alert-danger" *ngIf="registerForm.get('firstname')?.touched && registerForm.get('firstname')?.hasError('minlength')">The First Name should have at least 5 characters</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="lastname" class="form-label">Last Name:</label>
+      <input class="form-control" type="text" id="lastname" formControlName="lastname" placeholder="Enter your last name">
+      <div class="alert alert-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.hasError('required')">The Last Name is required</div>
+      <div class="alert alert-danger" *ngIf="registerForm.get('lastname')?.touched && registerForm.get('lastname')?.hasError('minlength')">The Last Name should have at least 5 characters</div>
+    </div>
+    <div class="mb-3">
+      <label for="birthdate">Date of Birth:</label>
+      <input class="form-control" type="date" formControlName="birthdate" placeholder="Enter your birthdate">
+      <div class="alert alert-danger" *ngIf="registerForm.get('birthdate')?.touched && registerForm.get('birthdate')?.hasError('required')">The Date of Birth is required</div>
+      <div class="alert alert-danger" *ngIf="registerForm.get('birthdate')?.touched && registerForm.get('birthdate')?.hasError('ageUnder18')">You must be at least 18 years old</div>
+  </div>
+    <div class="mb-3">
+      <label for="region" class="form-label">Choose your region:</label>
+      <select class="form-select" id="region" formControlName="region">
+        <option value="" disabled selected>Select your region</option>
+        <option value="Tunis">Tunis</option>
+        <option value="Gabes">Gabes</option>
+        <option value="Sfax">Sfax</option>
+        <option value="Jendouba">Jendouba</option>
+      </select>
+      <div class="alert alert-danger" *ngIf="registerForm.get('region')?.touched && registerForm.get('region')?.hasError('required')">Please select a region</div>
+    </div>
+
+    <button type="submit" class="btn btn-info" [disabled]="registerForm.invalid">Submit</button>
+    <button type="button" class="btn btn-info" (click)="onCancel()">Annuler</button>
+
+  </form>
+</div>

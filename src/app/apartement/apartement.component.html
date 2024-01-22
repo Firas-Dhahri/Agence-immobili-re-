@@ -1,0 +1,38 @@
+<div style="margin: 0 auto;">
+  <table>
+    <thead>
+      <tr>
+        <th>Apartment </th>
+        <th>Floor Number</th>
+        <th>Surface</th>
+        <th>Terrace</th>
+        <th>Surface of Terrace</th>
+        <th>Category</th>
+        <th>Description</th>
+        <th>Residence Name</th>
+        <th>Is Liked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let apart of list">
+        <td>
+          <div class="image-container">
+            <img src="{{ apart.image }}" width="150" alt="Apartment Image">
+          </div>
+        </td>
+        <td>{{ apart.floorNum }}</td>
+        <td>{{ apart.surface }}</td>
+        <td>{{ apart.terrace }}</td>
+        <td>{{ apart.surfaceTerrace }}</td>
+        <td>{{ apart.category }}</td>
+        <td>{{ apart.description }}</td>
+        <td>
+          <ng-container *ngIf="apart.residence">
+            {{ apart.residence.name }}
+          </ng-container>
+        </td>
+        <td [class.innovative-cell]="apart.isLiked">{{ apart.isLiked ? 'Yes' : 'No' }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

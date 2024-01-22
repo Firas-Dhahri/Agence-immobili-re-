@@ -1,0 +1,8 @@
+<div class="row">
+<div class="col" *ngFor="let z of listProduct">
+<button (click)="getalert()">Stock</button>
+<div>{{stock}}</div>
+    <app-show-one-app [p]="z" (notif)="afterReciveData($event)"></app-show-one-app>
+    
+</div>
+</div>

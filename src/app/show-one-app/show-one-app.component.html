@@ -1,0 +1,12 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="{{p.image}}" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{p.title}}</h5>
+      <h5 class="card-title">{{p.price}}</h5>
+      <h5 class="card-title">{{p.quantity}}</h5>
+      <h5 class="card-title">{{p.like}}</h5>
+      <button class="btn btn-primary" (click)="sendDataToParent(p)">Like</button>
+      <button class="btn btn-info" [routerLink]="['/product',p.id]">show</button>
+
+    </div>
+  </div>

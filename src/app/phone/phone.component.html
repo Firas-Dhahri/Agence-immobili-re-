@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col" *ngFor="let z of listPhone">
+    <app-show-one-app #c [p]="z"></app-show-one-app>
+    <input type="submit"(click)="c.showMsgChil()">
+
+    </div>
+    </div>

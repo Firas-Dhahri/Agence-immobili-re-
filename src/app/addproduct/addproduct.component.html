@@ -1,0 +1,39 @@
+<div class="d-flex justify-content-center">
+    <form [formGroup]="addprod" (ngSubmit)="onSubmit()" class="my-5">
+      <div class="mb-3">
+        <h5>Ajouter TV</h5>
+        <label for="id" class="form-label">ID</label>
+        <input type="text"  formControlName="id" class="form-control" />
+        <div class="alert alert-danger" *ngIf="addprod.get('id')?.touched && addprod.get('id')?.hasError('required')">Apartment number is required.</div>
+        <div class="alert alert-danger" *ngIf="addprod.get('id')?.touched && addprod.get('id')?.hasError('pattern')">Tape a number please -_-.</div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" id="title" formControlName="title" class="form-control" />
+        <div class="alert alert-danger" *ngIf="addprod.get('title')?.touched && addprod.get('title')?.hasError('required')">Floor number is required.</div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Price</label>
+        <input type="text" id="price" formControlName="price" class="form-control" />
+        <div class="alert alert-danger" *ngIf="addprod.get('price')?.touched && addprod.get('price')?.hasError('required')">Floor number is required.</div>
+        <div class="alert alert-danger" *ngIf="addprod.get('title')?.touched && addprod.get('price')?.hasError('pattern')">Tape a number please -_-.</div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Like</label>
+        <input type="text" id="like" formControlName="like" class="form-control" />
+        <div class="alert alert-danger" *ngIf="addprod.get('like')?.touched && addprod.get('like')?.hasError('required')">Floor number is required.</div>
+      </div>
+      <div class="mb-3">
+        <label for="title" class="form-label">Qte</label>
+        <input type="text" id="qte" formControlName="qte" class="form-control" />
+        <div class="alert alert-danger" *ngIf="addprod.get('qte')?.touched && addprod.get('qte')?.hasError('required')">Floor number is required.</div>
+        <div class="alert alert-danger" *ngIf="addprod.get('qte')?.touched && addprod.get('qte')?.hasError('pattern')">Tape a number please -_-.</div>
+      </div>
+      <label for="image" class="form-label">Image</label>
+      <input type="text" id="image" class="form-control" formControlName="image">
+     <div class="alert alert-danger" *ngIf="addprod.get('image')?.touched && addprod.get('image')?.hasError('required')">Image is required !</div>
+      <button type="submit" class="btn btn-primary" [disabled]="!addprod.valid || !addprod.touched" (click)="ajouter()  ">Submit</button>
+      <button type="button" class="btn btn-info" (click)="onCancel()">Annuler</button>
+    
+    </form>
+    
