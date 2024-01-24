@@ -22,6 +22,12 @@ import {HttpClientModule} from '@angular/common/http';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PopupComponent } from './popup/popup.component';
+import { TerrainComponent } from './terrain/terrain.component';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { AddTerrainComponent } from './add-terrain/add-terrain.component';
 
 
 @NgModule({
@@ -43,6 +49,9 @@ import { PopupComponent } from './popup/popup.component';
     UpdateResidenceComponent,
     DetailProductComponent,
     PopupComponent,
+    TerrainComponent,
+    AddTerrainComponent,
+
     
 
     
@@ -54,6 +63,10 @@ import { PopupComponent } from './popup/popup.component';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatCardModule,
+    MatIconModule,
+    MatInputModule,
+    MatFormFieldModule,
     BrowserAnimationsModule
   ],
   providers: [],

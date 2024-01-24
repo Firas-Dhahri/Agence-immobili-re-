@@ -1,0 +1,30 @@
+<div class="card-container">
+    <table class="table">
+      <tbody>
+        <tr  class="row">
+          <ng-container *ngFor="let terrain of listTerrain" > 
+          <td class="col-md-6 mt-3">
+            <div class="card">
+              <div class="row no-gutters">
+                <div class="col-md-6">
+                  <img [src]="terrain.image" alt="{{ terrain.name }} Image" class="card-img-top" style="width: 200px; height: 200px;">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title">{{ terrain.name }}</h5>
+                    <p class="card-text">{{ terrain.address }}</p>
+                    <p class="card-text">{{ terrain.desc }}</p>
+
+                    <!-- Additional content if needed -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </td>
+          <!-- Additional columns if needed -->
+        </ng-container> 
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

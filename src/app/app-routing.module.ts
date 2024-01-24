@@ -12,19 +12,22 @@ import { AddproductComponent } from './addproduct/addproduct.component';
 import { AddResidenceComponent } from './add-residence/add-residence.component';
 import { UpdateResidenceComponent } from './update-residence/update-residence.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
+import { TerrainComponent } from './terrain/terrain.component';
+import { AddTerrainComponent } from './add-terrain/add-terrain.component';
 
 const routes: Routes = [
   { path: 'home', component: AccueilComponent },
   { path: 'residence', component: ResidencesComponent },
   { path: 'residences', component: ResidencesComponent },
   { path: 'apartments', component: ApartementComponent },
+  { path: 'terr', component: TerrainComponent },
   { path: 'reactiveform', component: ReactiveformComponent },
   { path: 'details/:id', component: DetailsapartComponent },
   { path: 'tv', component: TvComponent },
   { path: 'ph', component: PhoneComponent },
   { path: 'addprod', component: AddproductComponent },
   { path: 'addr', component: AddResidenceComponent },
-  { path: 'upr', component: UpdateResidenceComponent },
+  { path: 'upTerrain', component: AddTerrainComponent },
   {path:'product/:id',component:DetailProductComponent},
 
 

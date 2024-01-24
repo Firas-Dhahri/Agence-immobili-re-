@@ -1,0 +1,21 @@
+  /* Add this style block in your component's CSS file or in the global styles file */
+  .page-container {
+    background-color: #3498db; /* Blue color for the page background */
+    color: white; /* White text color for better contrast */
+    padding: 20px; /* Adjust padding as needed */
+  }
+
+  .table, tr ,th,td{
+    border-color: #ffffff; /* Dark color for table borders */
+    background-color: #ffffff;
+    color: white;
+
+  }
+
+
+  .card{
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #45a4e4; /* Blue color for the table */
+    color: white;
+
+  }
